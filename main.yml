@@ -1,0 +1,43 @@
+---
+
+- name: machines de prod provisioned
+  hosts: vm
+  become: yes
+  
+  tasks:
+  # install utilities
+  - name: install package
+    yum:
+      name:
+      - wget
+      - unzip
+      - tree
+      - net-tools
+      - curl
+  
+  # install git no matter redhat or ubuntu
+  - name: install git (redhat or ubuntu)
+    include_tasks: tasks/git_tasks.yml
+  
+  # install docker redhat only
+  - name: install docker
+    include_tasks: tasks/docker_tasks.yml
+  
+- name: node exporter role installed (geerlinguy) port:9100
+  hosts: vm
+  become: yes
+  roles:
+  - role:  ./roles/node-exporter/ansible-role-node_exporter 
+
+- name: prometheus role installed (cloudalchemy) port:9090
+  hosts: monitor
+  become: yes
+  roles:
+  - ./roles/ansible-prometheus
+  vars:
+    prometheus_targets:
+      node:
+      - targets:
+        - 20.234.180.58:9100
+
+  

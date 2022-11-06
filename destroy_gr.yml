@@ -1,0 +1,15 @@
+---
+- hosts: localhost
+  tasks:
+    - name: load vars from vars/vmvars
+      ansible.builtin.include_vars:
+        file: ./vars/vmvars
+
+    - name: Deleting resource group
+      azure_rm_resourcegroup:
+        name: "{{resourcegroup_name}}"
+        state: absent
+        force_delete_nonempty: yes
+      register: rg
+    - debug:
+        var: rg

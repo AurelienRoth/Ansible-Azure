@@ -1,0 +1,11 @@
+---
+
+- name: "tests inventory hostname"
+  connection: local
+  hosts: all
+  vars:
+    
+  tasks:
+    - name: "hostname list"
+      debug: msg={{inventory_hostname_short}}
+      

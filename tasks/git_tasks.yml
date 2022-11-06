@@ -1,0 +1,15 @@
+---
+
+- name: redhat git install
+  yum:
+    name: git
+    state: latest
+    update_cache: yes
+  when: ansible_os_family | lower == "redhat"
+
+- name: ubuntu git install
+  apt:
+    name: git
+    state: latest
+    update_cache: yes
+  when: ansible_os_family | lower == "ubuntu"

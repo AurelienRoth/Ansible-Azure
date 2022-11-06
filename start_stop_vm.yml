@@ -1,0 +1,33 @@
+- name: Stop/Launch Azure VM
+  hosts: localhost
+  vars_prompt:
+    - name: "Stop_or_Launch"
+      prompt: "LAUNCH (l) or STOP (s) Vms ?"
+      private: no
+  
+  connection: local
+  tasks:
+    - name: load vars from vars/vmvars
+      ansible.builtin.include_vars:
+        file: ./vars/vmvars
+
+    - name: Stop VMs
+      azure_rm_virtualmachine:
+        resource_group: "{{resourcegroup_name}}"
+        name: "{{item}}"
+        state: present
+        started: no
+      loop: 
+        - "{{inventory_hostname_short}}"
+      when: Stop_or_Launch == "s"
+
+    - name: Launch VMs
+      azure_rm_virtualmachine:
+        resource_group: "{{resourcegroup_name}}"
+        name: "{{item}}"
+        state: present
+        started: yes
+        admin_username: "{{admin_username}}"
+      loop: 
+        - "{{inventory_hostname_short}}"
+      when: Stop_or_Launch == "l"

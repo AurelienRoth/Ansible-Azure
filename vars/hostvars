@@ -1,0 +1,165 @@
+{
+    "CentOS": {
+        "hosts": [
+            "trainingAR-vm1"
+        ]
+    },
+    "_20_224_133_66": {
+        "hosts": [
+            "trainingAR-monitorVM"
+        ]
+    },
+    "_20_234_180_58": {
+        "hosts": [
+            "trainingAR-vm1"
+        ]
+    },
+    "_meta": {
+        "hostvars": {
+            "trainingAR-monitorVM": {
+                "ansible_host": "20.224.133.66",
+                "availability_zone": null,
+                "computer_name": "trainingAR-monitorVM",
+                "data_disks": [],
+                "default_inventory_hostname": "trainingAR-monitorVM",
+                "id": "/subscriptions/92c7e980-9ed9-4084-aa82-1fb3bc9b75d5/resourceGroups/TRAININGAR-RG/providers/Microsoft.Compute/virtualMachines/trainingAR-monitorVM",
+                "image": {
+                    "offer": "debian-10",
+                    "publisher": "Debian",
+                    "sku": "10",
+                    "version": "0.20220911.1135"
+                },
+                "location": "westeurope",
+                "mac_address": [
+                    "00-0D-3A-2E-B7-ED"
+                ],
+                "name": "trainingAR-monitorVM",
+                "network_interface": [
+                    "trainingAR-nic-monitor"
+                ],
+                "network_interface_id": [
+                    "/subscriptions/92c7e980-9ed9-4084-aa82-1fb3bc9b75d5/resourceGroups/trainingAR-rg/providers/Microsoft.Network/networkInterfaces/trainingAR-nic-monitor"
+                ],
+                "os_disk": {
+                    "id": "/subscriptions/92c7e980-9ed9-4084-aa82-1fb3bc9b75d5/resourceGroups/trainingAR-rg/providers/Microsoft.Compute/disks/trainingAR-monitorVM",
+                    "name": "trainingAR-monitorVM",
+                    "operating_system_type": "linux"
+                },
+                "os_profile": {
+                    "system": "linux"
+                },
+                "plan": null,
+                "powerstate": "running",
+                "private_ipv4_addresses": [
+                    "172.16.1.5"
+                ],
+                "provisioning_state": "succeeded",
+                "public_dns_hostnames": [],
+                "public_ip_id": "/subscriptions/92c7e980-9ed9-4084-aa82-1fb3bc9b75d5/resourceGroups/trainingAR-rg/providers/Microsoft.Network/publicIPAddresses/trainingAR-ip-monitor",
+                "public_ip_name": "trainingAR-ip-monitor",
+                "public_ipv4_addresses": [
+                    "20.224.133.66"
+                ],
+                "resource_group": "trainingar-rg",
+                "resource_type": "Microsoft.Compute/virtualMachines",
+                "security_group": [
+                    "trainingAR-nsg"
+                ],
+                "security_group_id": [
+                    "/subscriptions/92c7e980-9ed9-4084-aa82-1fb3bc9b75d5/resourceGroups/trainingAR-rg/providers/Microsoft.Network/networkSecurityGroups/trainingAR-nsg"
+                ],
+                "tags": {
+                    "applicationRole": "monitor"
+                },
+                "virtual_machine_size": "Standard_B2s",
+                "vmid": "92a883ca-a4e4-4528-bb6a-111154c5bbe8",
+                "vmss": {}
+            },
+            "trainingAR-vm1": {
+                "ansible_host": "20.234.180.58",
+                "availability_zone": null,
+                "computer_name": "trainingAR-vm1",
+                "data_disks": [],
+                "default_inventory_hostname": "trainingAR-vm1",
+                "id": "/subscriptions/92c7e980-9ed9-4084-aa82-1fb3bc9b75d5/resourceGroups/TRAININGAR-RG/providers/Microsoft.Compute/virtualMachines/trainingAR-vm1",
+                "image": {
+                    "offer": "CentOS",
+                    "publisher": "OpenLogic",
+                    "sku": "7.5",
+                    "version": "7.5.201808150"
+                },
+                "location": "westeurope",
+                "mac_address": [
+                    "00-22-48-85-C3-13"
+                ],
+                "name": "trainingAR-vm1",
+                "network_interface": [
+                    "trainingAR-nic1"
+                ],
+                "network_interface_id": [
+                    "/subscriptions/92c7e980-9ed9-4084-aa82-1fb3bc9b75d5/resourceGroups/trainingAR-rg/providers/Microsoft.Network/networkInterfaces/trainingAR-nic1"
+                ],
+                "os_disk": {
+                    "id": "/subscriptions/92c7e980-9ed9-4084-aa82-1fb3bc9b75d5/resourceGroups/trainingAR-rg/providers/Microsoft.Compute/disks/trainingAR-vm1",
+                    "name": "trainingAR-vm1",
+                    "operating_system_type": "linux"
+                },
+                "os_profile": {
+                    "system": "linux"
+                },
+                "plan": null,
+                "powerstate": "running",
+                "private_ipv4_addresses": [
+                    "172.16.1.4"
+                ],
+                "provisioning_state": "succeeded",
+                "public_dns_hostnames": [],
+                "public_ip_id": "/subscriptions/92c7e980-9ed9-4084-aa82-1fb3bc9b75d5/resourceGroups/trainingAR-rg/providers/Microsoft.Network/publicIPAddresses/trainingAR-ip1",
+                "public_ip_name": "trainingAR-ip1",
+                "public_ipv4_addresses": [
+                    "20.234.180.58"
+                ],
+                "resource_group": "trainingar-rg",
+                "resource_type": "Microsoft.Compute/virtualMachines",
+                "security_group": [
+                    "trainingAR-nsg"
+                ],
+                "security_group_id": [
+                    "/subscriptions/92c7e980-9ed9-4084-aa82-1fb3bc9b75d5/resourceGroups/trainingAR-rg/providers/Microsoft.Network/networkSecurityGroups/trainingAR-nsg"
+                ],
+                "tags": {
+                    "applicationRole": "vm"
+                },
+                "virtual_machine_size": "Standard_B2s",
+                "vmid": "ad416517-d418-41aa-9da1-db5b2d4c8446",
+                "vmss": {}
+            }
+        }
+    },
+    "all": {
+        "children": [
+            "CentOS",
+            "_20_224_133_66",
+            "_20_234_180_58",
+            "debian_10",
+            "monitor",
+            "ungrouped",
+            "vm"
+        ]
+    },
+    "debian_10": {
+        "hosts": [
+            "trainingAR-monitorVM"
+        ]
+    },
+    "monitor": {
+        "hosts": [
+            "trainingAR-monitorVM"
+        ]
+    },
+    "vm": {
+        "hosts": [
+            "trainingAR-vm1"
+        ]
+    }
+}
