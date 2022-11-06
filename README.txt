@@ -21,5 +21,7 @@ PROVISIONING DES VM
 
 - playbook "main.yml" qui prévoit l'ensemble du provisonning des vm
 
-- un répertoire tasks avec des installs disponibles
+- un répertoire tasks avec des installs disponibles de docker et git
+
+- un repertoire "roles" pour la configuration des Node_exporter et de prometheus
 
