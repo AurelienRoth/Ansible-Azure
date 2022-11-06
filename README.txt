@@ -7,6 +7,7 @@ CREATION ET GESTION DES RESSOURCES
 - "create_vm.yml" permet la création de l'ensemble des ressources azure et de l'accès SSH.
   Il crée ensuite les vm, il est alimenté par des variables provisionnées dans "vars/vmvars"
   Il crée une sortie enregistrée dans vars/hostvars
+  Inspirations : docs ansible & blog Zwindler's Reflection
 
 - l'inventaire est réalisé de façon dynamique avec le plugin "azure_rm", prévu au fichier de config d'Ansible ("ansible.cfg")
   les tags sont mis automatiquement selon l'OS, l'IP, et selon si la machine a été créée pour être prod/monitoring
@@ -24,4 +25,5 @@ PROVISIONING DES VM
 - un répertoire tasks avec des installs disponibles de docker et git
 
 - un repertoire "roles" pour la configuration des Node_exporter et de prometheus
+  Sources : geerlingguy & cloudalchemy
 
