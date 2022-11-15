@@ -1,5 +1,5 @@
 - name: Stop/Launch Azure VM
-  hosts: localhost
+  hosts: all
   vars_prompt:
     - name: "Stop_or_Launch"
       prompt: "LAUNCH (l) or STOP (s) Vms ?"
@@ -11,12 +11,21 @@
       ansible.builtin.include_vars:
         file: ./vars/vmvars
 
+    - debug:
+        msg: inventory_hostname_short = {{inventory_hostname_short}}
+
+    - debug:
+        msg: inventory_hostname = {{inventory_hostname}}
+
+    - debug:
+        msg: play_hosts = {{play_hosts}}
+
     - name: Stop VMs
       azure_rm_virtualmachine:
         resource_group: "{{resourcegroup_name}}"
         name: "{{item}}"
         state: present
-        started: no
+        started: false
         admin_username: "{{admin_username}}"
       loop: 
         - "{{inventory_hostname_short}}"
@@ -27,7 +36,7 @@
         resource_group: "{{resourcegroup_name}}"
         name: "{{item}}"
         state: present
-        started: yes
+        started: true
         admin_username: "{{admin_username}}"
       loop: 
         - "{{inventory_hostname_short}}"
