@@ -17,6 +17,7 @@
         name: "{{item}}"
         state: present
         started: no
+        admin_username: "{{admin_username}}"
       loop: 
         - "{{inventory_hostname_short}}"
       when: Stop_or_Launch == "s"
